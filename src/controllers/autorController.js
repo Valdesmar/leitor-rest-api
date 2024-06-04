@@ -8,10 +8,10 @@ class AutorController {
             res.status(200).json(listaAutores);
         } catch (err) {
             res
-            .status(500)
-            .json({ message: `${err.message} - falha na requisição` });
+                .status(500)
+                .json({ message: `${err.message} - falha na requisição` });
         }
-    };
+    }
 
     static async listarAutoresPorNome (req, res) {
         try {
@@ -20,21 +20,21 @@ class AutorController {
             res.status(200).json(listaAutorPorNome);
         } catch (err) {
             res
-            .status(500)
-            .json({ message: `${err.message} - falha na requisição` });
+                .status(500)
+                .json({ message: `${err.message} - falha na requisição` });
         }
-    };
+    }
 
     static async cadastrarAutor (req, res) {
         try {
             const novoAutor = await autor.create(req.body);
-            res.status(201).json({ message: `criado com sucesso:`, autor: novoAutor });
+            res.status(201).json({ message: "criado com sucesso:", autor: novoAutor });
         } catch (err) {
             res
-            .status(500)
-            .json({ message: `${err.message} - falha ao cadastrar autor` });
+                .status(500)
+                .json({ message: `${err.message} - falha ao cadastrar autor` });
         }
-    };
+    }
 
     static async atualizarAutor (req, res) {
         try {
@@ -43,10 +43,10 @@ class AutorController {
             res.status(200).json({message: "Autor atualiado com sucesso!"});
         } catch (err) {
             res
-            .status(500)
-            .json({ message: `${err.message} - falha na atualização de Autor` });
+                .status(500)
+                .json({ message: `${err.message} - falha na atualização de Autor` });
         }
-    };
+    }
 
     static async excluirAutor (req, res) {
         try {
@@ -55,11 +55,11 @@ class AutorController {
             res.status(200).json({message: "Autor deletado com sucesso!"});
         } catch (err) {
             res
-            .status(500)
-            .json({ message: `${err.message} - falha ao tentar deletar Autor` });
+                .status(500)
+                .json({ message: `${err.message} - falha ao tentar deletar Autor` });
         }
-    };
+    }
 
-};
+}
 
 export default AutorController;

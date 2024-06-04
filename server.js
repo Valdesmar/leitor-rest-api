@@ -7,5 +7,3 @@ app.listen(PORT, () => {
     console.log("Servidor rodando!");
 });
 
-
-

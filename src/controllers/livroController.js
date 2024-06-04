@@ -9,10 +9,10 @@ class LivroController {
             res.status(200).json(listaLivros);
         } catch (err) {
             res
-            .status(500)
-            .json({ message: `${err.message} - falha na requisição` });
+                .status(500)
+                .json({ message: `${err.message} - falha na requisição` });
         }
-    };
+    }
 
     static async listarLivrosPorId (req, res) {
         try {
@@ -21,10 +21,10 @@ class LivroController {
             res.status(200).json(listaLivroPorId);
         } catch (err) {
             res
-            .status(500)
-            .json({ message: `${err.message} - falha na requisição` });
+                .status(500)
+                .json({ message: `${err.message} - falha na requisição` });
         }
-    };
+    }
 
     static async cadastrarLivro (req, res) {
         const novoLivro = req.body;
@@ -32,13 +32,13 @@ class LivroController {
             const autorEncontrado = await autor.findById(novoLivro.autor);
             const livroCompleto = { ...novoLivro, autor: { ...autorEncontrado._doc }};
             const livroCriado = await livro.create(livroCompleto);
-            res.status(201).json({ message: `criado com sucesso:`, livro: livroCriado });
+            res.status(201).json({ message: "criado com sucesso:", livro: livroCriado });
         } catch (err) {
             res
-            .status(500)
-            .json({ message: `${err.message} - falha ao cadastrar livro` });
+                .status(500)
+                .json({ message: `${err.message} - falha ao cadastrar livro` });
         }
-    };
+    }
 
     static async atualizarLivro (req, res) {
         try {
@@ -47,10 +47,10 @@ class LivroController {
             res.status(200).json({message: "Livro atualiado com sucesso!"});
         } catch (err) {
             res
-            .status(500)
-            .json({ message: `${err.message} - falha na atualização de Livro` });
+                .status(500)
+                .json({ message: `${err.message} - falha na atualização de Livro` });
         }
-    };
+    }
 
     static async excluirLivro (req, res) {
         try {
@@ -59,10 +59,10 @@ class LivroController {
             res.status(200).json({message: "Livro deletado com sucesso!"});
         } catch (err) {
             res
-            .status(500)
-            .json({ message: `${err.message} - falha ao tentar deletar Livro` });
+                .status(500)
+                .json({ message: `${err.message} - falha ao tentar deletar Livro` });
         }
-    };
+    }
 
     static async listarLivrosPorTitulo (req, res) {
         const titulo = req.query.titulo;
@@ -71,11 +71,11 @@ class LivroController {
             res.status(200).json(livroPorTitulo);
         } catch (err) {
             res
-            .status(500)
-            .json({ message: `${err.message} - falha na requisição` });
+                .status(500)
+                .json({ message: `${err.message} - falha na requisição` });
         }
-    };
+    }
 
-};
+}
 
 export default LivroController;
